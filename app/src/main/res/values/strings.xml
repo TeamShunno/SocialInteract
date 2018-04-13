@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Social Interact</string>
+    <string name="mosque_des"><![CDATA[<strong>মসজিদ</strong> মুসলমানদের দলবদ্ধভাবে নামাজ পড়ার জন্য নির্মিত স্থাপনা। সাধারণভাবে, যেসব স্থাপনায় মুসলমানেরা একত্র হয়ে প্রাত্যহিক পাঁচ ওয়াক্ত নামাজ আদায় করেন, তাকে মসজিদ বলে।
+    ]]></string>
+    <string name="mosque_do"><![CDATA[
+        <strong><h1>কি করব:</h1></strong>
+        <ul>
+            <li>
+               	&#8226; সুন্দরভাবে বসে থাকব। <br>
+            </li>
+            <li>
+               	&#8226; ইমামের সাথেসাথে জামাতে নামাজ আদায় করব। <br>
+            </li>
+        </ul>
+]]>
+    </string>
+
+    <string name="mosque_dont">
+        <![CDATA[
+<strong><h1>কি করব না:</h1></strong>
+       <ul>
+           <li>
+              	&#8226; অজতা কথা বলব না। <br>
+           </li>
+           <li>
+              	&#8226; চিৎকার করব না। <br>
+           </li>
+           <li>
+              	&#8226; কারো সাথে ধাক্কাধাক্কি করব না। <br>
+           </li>
+       </ul>
+]]>
+    </string>
+
+
+</resources>
