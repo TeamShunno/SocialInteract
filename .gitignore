@@ -31,20 +31,25 @@ proguard/
 
 # Android Studio captures folder
 captures/
-screenshots/
 
 # Intellij
 *.iml
-.idea
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/dictionaries
+.idea/libraries
 
 # Keystore files
 *.jks
 
-# Signing file
-signing.properties
+# External native build folder generated in Android Studio 2.2 and later
+.externalNativeBuild
 
-# Interactive ICT Docs folder
-app/src/main/assets/docs/
+# Google Services (e.g. APIs or Firebase)
+google-services.json
 
-# Release Files
-release/
+# Freeline
+freeline.py
+freeline/
+freeline_project_description.json
