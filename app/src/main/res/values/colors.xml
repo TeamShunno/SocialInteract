@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#40e5a6</color>
-    <color name="colorPrimaryDark">#2fd193</color>
-    <color name="colorAccent">#bf0407</color>
+    <color name="colorPrimary">#1abc9c</color>
+    <color name="colorPrimaryDark">#16a085</color>
+    <color name="colorAccent">#e74c3c</color>
+
+    <color name="translucent_scrim_top">#80000000</color>
+    <color name="translucent_scrim_top_center">#0C000000</color>
+    <color name="translucent_scrim_bottom">#80000000</color>
+    <color name="translucent_scrim_bottom_center">#0D000000</color>
 </resources>
