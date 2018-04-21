@@ -7,12 +7,15 @@
  */
 package com.teamshunno.autism.socialinteract;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,7 +25,10 @@ import java.util.Locale;
 
 public class DetailsActivity extends AppCompatActivity {
 
+    Context mContext;
+
     boolean click = false;
+    public ImageButton imageButtonDo, imageButtonDont;
     ImageView imageView;
     TextView descText, doText, dontText;
     FloatingActionButton fabplay;
@@ -32,6 +38,7 @@ public class DetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
+        mContext = DetailsActivity.this;
 
         /**
          * Set Toolbar
@@ -43,9 +50,11 @@ public class DetailsActivity extends AppCompatActivity {
 
         fabplay = (FloatingActionButton) findViewById(R.id.fabplay);
         descText = (TextView) findViewById(R.id.descText);
-        doText = (TextView) findViewById(R.id.doText);
-        dontText = (TextView) findViewById(R.id.dontText);
+//        doText = (TextView) findViewById(R.id.doText);
+//        dontText = (TextView) findViewById(R.id.dontText);
         imageView = (ImageView) findViewById(R.id.imageView);
+        imageButtonDo = (ImageButton)findViewById(R.id.doImage);
+        imageButtonDont = (ImageButton)findViewById(R.id.dontImage);
 
         textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
@@ -55,6 +64,8 @@ public class DetailsActivity extends AppCompatActivity {
                 }
             }
         });
+
+
 
         /**
          * Receive Data
@@ -68,9 +79,7 @@ public class DetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!click) {
                     fabplay.setImageResource(R.drawable.ic_stop_black_24dp);
-                    textToSpeech.speak(descText.getText().toString() +
-                            getString(R.string.text_dos) + "। " + doText.getText().toString() +
-                            getString(R.string.text_donts) + "। " + dontText.getText().toString(), TextToSpeech.QUEUE_FLUSH, null);
+                    textToSpeech.speak(descText.getText().toString(), TextToSpeech.QUEUE_FLUSH, null);
                     click = true;
                 } else {
                     textToSpeech.stop();
@@ -91,11 +100,27 @@ public class DetailsActivity extends AppCompatActivity {
                         .load(R.drawable.mosque_card)
                         .into(imageView);
 
+                Picasso.get()
+                        .load(R.drawable.doi)
+                        .into(imageButtonDo);
+
+                Picasso.get()
+                        .load(R.drawable.dont)
+                        .into(imageButtonDont);
+
                 descText.setText(getString(R.string.mosque_des));
 
-                doText.setText(getString(R.string.mosque_do));
+                imageButtonDo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, ImageSliderActivity.class);
+                        startActivity(intent);
+                    }
+                });
 
-                dontText.setText(getString(R.string.mosque_dont));
+                //doText.setText(getString(R.string.mosque_do));
+
+                //dontText.setText(getString(R.string.mosque_dont));
 
                 break;
 
@@ -108,11 +133,27 @@ public class DetailsActivity extends AppCompatActivity {
                         .load(R.drawable.bus_card)
                         .into(imageView);
 
+                Picasso.get()
+                        .load(R.drawable.doi)
+                        .into(imageButtonDo);
+
+                Picasso.get()
+                        .load(R.drawable.dont)
+                        .into(imageButtonDont);
+
                 descText.setText(getString(R.string.mosque_des));
 
-                doText.setText(getString(R.string.mosque_do));
-
-                dontText.setText(getString(R.string.mosque_dont));
+                imageButtonDo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, BusImageActivity.class);
+                        startActivity(intent);
+                    }
+                });
+//
+//                doText.setText(getString(R.string.mosque_do));
+//
+//                dontText.setText(getString(R.string.mosque_dont));
 
                 break;
 
@@ -125,11 +166,27 @@ public class DetailsActivity extends AppCompatActivity {
                         .load(R.drawable.resturant_card)
                         .into(imageView);
 
+                Picasso.get()
+                        .load(R.drawable.doi)
+                        .into(imageButtonDo);
+
+                Picasso.get()
+                        .load(R.drawable.dont)
+                        .into(imageButtonDont);
+
                 descText.setText(getString(R.string.mosque_des));
 
-                doText.setText(getString(R.string.mosque_do));
-
-                dontText.setText(getString(R.string.mosque_dont));
+                imageButtonDo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, ResturantImageActivity.class);
+                        startActivity(intent);
+                    }
+                });
+//
+//                doText.setText(getString(R.string.mosque_do));
+//
+//                dontText.setText(getString(R.string.mosque_dont));
 
                 break;
 
@@ -142,11 +199,29 @@ public class DetailsActivity extends AppCompatActivity {
                         .load(R.drawable.park_card)
                         .into(imageView);
 
+
+                Picasso.get()
+                        .load(R.drawable.doi)
+                        .into(imageButtonDo);
+
+                Picasso.get()
+                        .load(R.drawable.dont)
+                        .into(imageButtonDont);
+
                 descText.setText(getString(R.string.mosque_des));
 
-                doText.setText(getString(R.string.mosque_do));
+                imageButtonDo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, ParkImageActivity.class);
+                        startActivity(intent);
+                    }
+                });
 
-                dontText.setText(getString(R.string.mosque_dont));
+//
+//                doText.setText(getString(R.string.mosque_do));
+//
+//                dontText.setText(getString(R.string.mosque_dont));
 
                 break;
 
@@ -159,11 +234,27 @@ public class DetailsActivity extends AppCompatActivity {
                         .load(R.drawable.picnic_card)
                         .into(imageView);
 
+                Picasso.get()
+                        .load(R.drawable.doi)
+                        .into(imageButtonDo);
+
+                Picasso.get()
+                        .load(R.drawable.dont)
+                        .into(imageButtonDont);
+
                 descText.setText(getString(R.string.mosque_des));
 
-                doText.setText(getString(R.string.mosque_do));
+                imageButtonDo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, PicnicImageActivity.class);
+                        startActivity(intent);
+                    }
+                });
 
-                dontText.setText(getString(R.string.mosque_dont));
+//                doText.setText(getString(R.string.mosque_do));
+//
+//                dontText.setText(getString(R.string.mosque_dont));
 
                 break;
 
@@ -175,12 +266,27 @@ public class DetailsActivity extends AppCompatActivity {
                 Picasso.get()
                         .load(R.drawable.mosque_card)
                         .into(imageView);
+                Picasso.get()
+                        .load(R.drawable.doi)
+                        .into(imageButtonDo);
+
+                Picasso.get()
+                        .load(R.drawable.dont)
+                        .into(imageButtonDont);
 
                 descText.setText(getString(R.string.mosque_des));
 
-                doText.setText(getString(R.string.mosque_do));
+                imageButtonDo.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, ImageSliderActivity.class);
+                        startActivity(intent);
+                    }
+                });
 
-                dontText.setText(getString(R.string.mosque_dont));
+//                doText.setText(getString(R.string.mosque_do));
+//
+//                dontText.setText(getString(R.string.mosque_dont));
 
                 break;
 

@@ -23,6 +23,8 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     public static final int PLACE_MOSQUE = 0;
@@ -141,6 +143,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Intent intent = new Intent(MainActivity.this, DetailsActivity.class);
 
+        textToSpeech = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if (status != TextToSpeech.ERROR) {
+                    textToSpeech.setLanguage(new Locale("bn_BD"));
+                }
+            }
+        });
+
         switch (v.getId()) {
             case R.id.mosque:
                 intent.putExtra("place", PLACE_MOSQUE);
@@ -153,23 +164,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.park:
-                intent.putExtra("place", PLACE_HOTEL);
-                startActivity(intent);
-                break;
-
-            case R.id.picnic:
                 intent.putExtra("place", PLACE_PARK);
                 startActivity(intent);
                 break;
 
-            case R.id.restaurant:
+            case R.id.picnic:
                 intent.putExtra("place", PLACE_PICNIC);
                 startActivity(intent);
                 break;
 
-            case R.id.dummy:
-                intent.putExtra("place", PLACE_DEMO);
+            case R.id.restaurant:
+                intent.putExtra("place", PLACE_HOTEL);
                 startActivity(intent);
+                break;
+
+            case R.id.dummy:
+//                Intent intent1 = new Intent(this, ImageSliderActivity.class);
+                intent.putExtra("place", PLACE_DEMO);
+//
+//                startActivity(intent1);
+
+                textToSpeech.speak(getString(R.string.text_dos), TextToSpeech.QUEUE_FLUSH, null);
                 break;
         }
     }
