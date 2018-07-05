@@ -17,7 +17,7 @@ public class BusImageActivity extends AppCompatActivity {
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    private static final Integer[] IMAGES= {R.drawable.bus_card,R.drawable.bus_card,R.drawable.bus_card,R.drawable.bus_card};
+    private static final Integer[] IMAGES= {R.drawable.bus_line,R.drawable.mos_prayer,R.drawable.bus_card,R.drawable.bus_card};
     private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
 
     @Override

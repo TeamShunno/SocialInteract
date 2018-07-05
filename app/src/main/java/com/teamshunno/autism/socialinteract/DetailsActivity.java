@@ -261,7 +261,7 @@ public class DetailsActivity extends AppCompatActivity {
 
             case MainActivity.PLACE_DEMO:
 
-                setTitle("ডেমো");
+                setTitle("সামাজিক অনুষ্টান");
 
                 Picasso.get()
                         .load(R.drawable.mosque_card)
